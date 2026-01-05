@@ -15,7 +15,8 @@
       "Bash(ping:*)",
       "Bash(cmd //c \"taskkill /F /PID 29568 & taskkill /F /PID 18944 & taskkill /F /PID 21408 & taskkill /F /PID 16452 & taskkill /F /PID 1700\")",
       "Bash(cmd //c \"taskkill /F /IM python.exe /T 2>&1\")",
-      "Bash(psql:*)"
+      "Bash(psql:*)",
+      "Bash(docker build -t todo-chatbot-backend . --no-cache)"
     ]
   }
 }

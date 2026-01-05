@@ -109,5 +109,17 @@ Architected with **Row Level Security (RLS)**, ensuring objective isolation. No 
 ---
 
 ## ✍️ Credits & Hackathon Status
-Developed for **Hackathon II — Phase III PRO**. 
-**Status**: Combat Ready. 🚀🇺🇸
+Developed for **Hackathon II — Phase IV PRO**.
+**Status**: **Combat Ready + Kubernetes Deployed**. 🚀🇺🇸
+
+---
+
+## ☸️ Phase IV: Kubernetes Deployment Guide
+
+Complete Kubernetes deployment information is available in the dedicated README:
+
+- **[README_Phase4.md](README_Phase4.md)** - Complete Kubernetes deployment guide
+- **Dockerfiles** - Multi-stage builds for frontend and backend
+- **Helm Charts** - Production-ready deployment packages
+- **Kubernetes Manifests** - Complete deployment configurations
+- **Deployment Scripts** - Automated setup and management tools
