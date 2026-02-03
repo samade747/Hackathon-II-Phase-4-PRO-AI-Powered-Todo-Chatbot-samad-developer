@@ -1,7 +1,7 @@
 # =========================
 # Stage 1: Build stage
 # =========================
-FROM --platform=linux/amd64 node:20-slim AS builder
+FROM node:20-slim AS builder
 
 WORKDIR /app
 
@@ -14,13 +14,14 @@ RUN npm ci
 # Copy source code
 COPY . .
 
-# Build the Next.js application (standalone mode)
+# Build Next.js (standalone output)
 RUN npm run build
+
 
 # =========================
 # Stage 2: Production stage
 # =========================
-FROM --platform=linux/amd64 node:20-slim AS runner
+FROM node:20-slim AS runner
 
 WORKDIR /app
 
@@ -28,23 +29,23 @@ WORKDIR /app
 RUN groupadd -g 1001 nodejs && \
     useradd -m -u 1001 -g nodejs nextjs
 
-# Copy necessary files from builder stage
+# Copy standalone build output
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
-# Set ownership
+# Fix permissions
 RUN chown -R nextjs:nodejs /app
 
-# Switch to non-root user
+# Use non-root user
 USER nextjs
 
-# Expose port
+# Expose Next.js port
 EXPOSE 3000
 
-# Environment variables
-ENV PORT=3000
+# Disable telemetry
 ENV NEXT_TELEMETRY_DISABLED=1
+ENV PORT=3000
 
-# Start the application
+# Start standalone server
 CMD ["node", "server.js"]
