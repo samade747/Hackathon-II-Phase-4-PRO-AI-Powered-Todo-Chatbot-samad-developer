@@ -24,6 +24,10 @@ async def root():
 async def test_direct():
     return {"message": "Direct endpoint works!", "routes_count": len(app.routes)}
 
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
 @app.on_event("startup")
 async def startup_event():
     print("API Routes:")
