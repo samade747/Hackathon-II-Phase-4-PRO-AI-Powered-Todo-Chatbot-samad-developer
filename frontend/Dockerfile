@@ -43,8 +43,9 @@ USER nextjs
 EXPOSE 3000
 
 # Environment variables
+ENV NODE_ENV=production
+ENV HOST=0.0.0.0
 ENV PORT=3000
-ENV HOSTNAME=0.0.0.0
 ENV NEXT_TELEMETRY_DISABLED=1
 
 # Start the application
