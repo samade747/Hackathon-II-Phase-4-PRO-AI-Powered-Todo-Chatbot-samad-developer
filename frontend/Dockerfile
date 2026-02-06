@@ -44,6 +44,7 @@ EXPOSE 3000
 
 # Environment variables
 ENV PORT=3000
+ENV HOSTNAME=0.0.0.0
 ENV NEXT_TELEMETRY_DISABLED=1
 
 # Start the application
